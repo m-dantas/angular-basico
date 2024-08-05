@@ -37,10 +37,20 @@
     }
     <input type="text" class="form-control" placeholder="Cidade" formControlName="cidade">
 
-    <button type="button" class="btn btn-primary" [disabled]="formulario.invalid">Cadastrar</button>
-    <button type="button" class="btn btn-outline-primary">Alterar</button>
-    <button type="button" class="btn btn-outline-primary">Remover</button>
-    <button type="button" class="btn btn-danger">Cancelar</button>
+    @if (btnCadastrar) {
+        <button
+            type="button"
+            class="btn btn-primary"
+            [disabled]="formulario.invalid"
+            (click)="cadastrar()"
+        >
+            Cadastrar
+        </button>
+    } @else {
+        <button type="button" class="btn btn-outline-primary">Alterar</button>
+        <button type="button" class="btn btn-outline-primary">Remover</button>
+        <button type="button" class="btn btn-danger">Cancelar</button>
+    }
 </form>
 
 <table class="table">
