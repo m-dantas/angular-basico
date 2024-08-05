@@ -1,12 +1,46 @@
 <form [formGroup]="formulario">
+
+    <!-- Nome -->
+    @if (formulario.get('nome').hasError('required') && formulario.get('nome').touched) {
+        <p class="alert alert-warning">O campo <b>Nome</b> é obrigatório</p>
+    }
+
+    @if (formulario.get('nome').hasError('minlength') && formulario.get('nome').touched) {
+        <p class="alert alert-warning">O campo <b>Nome</b> precisa conter pelo menos 3 caracteres</p>
+    }
+
     <input type="text" class="form-control" placeholder="Nome" formControlName="nome">
+
+    <!-- Idade -->
+
+    @if (formulario.get('idade').hasError('required') && formulario.get('idade').touched) {
+        <p class="alert alert-warning">O campo <b>Idade</b> é obrigatório</p>
+    }
+
+    @if (formulario.get('idade').hasError('min') && formulario.get('idade').touched) {
+        <p class="alert alert-warning">O campo <b>Idade</b> não aceita números inferiores a 0</p>
+    }
+
+    @if (formulario.get('idade').hasError('max') && formulario.get('idade').touched) {
+        <p class="alert alert-warning">O campo <b>Idade</b> não aceita números superiores a 120</p>
+    }
+
     <input type="number" class="form-control" placeholder="Idade" formControlName="idade">
+
+    <!-- Cidade -->
+    @if (formulario.get('cidade').hasError('required') && formulario.get('cidade').touched) {
+        <p class="alert alert-warning">O campo <b>Cidade</b> é obrigatório</p>
+    }
+
+    @if (formulario.get('cidade').hasError('minlength') && formulario.get('cidade').touched) {
+        <p class="alert alert-warning">O campo <b>Cidade</b> precisa conter pelo menos 3 caracteres</p>
+    }
     <input type="text" class="form-control" placeholder="Cidade" formControlName="cidade">
 
-    <button class="btn btn-primary">Cadastrar</button>
-    <button class="btn btn-outline-primary">Alterar</button>
-    <button class="btn btn-outline-primary">Remover</button>
-    <button class="btn btn-danger">Cancelar</button>
+    <button type="button" class="btn btn-primary" [disabled]="formulario.invalid">Cadastrar</button>
+    <button type="button" class="btn btn-outline-primary">Alterar</button>
+    <button type="button" class="btn btn-outline-primary">Remover</button>
+    <button type="button" class="btn btn-danger">Cancelar</button>
 </form>
 
 <table class="table">
