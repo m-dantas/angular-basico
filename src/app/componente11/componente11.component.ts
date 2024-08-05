@@ -18,10 +18,21 @@ export class Componente11Component {
 
   btnCadastrar: boolean = true
 
-  vetor: Pessoa[] = []
+  pessoas: Pessoa[] = []
+  indice: number = -1
 
   cadastrar () {
-    this.vetor.push(this.formulario.value as Pessoa)
+    this.pessoas.push(this.formulario.value as Pessoa)
     this.formulario.reset()
+  }
+
+  selecao (index: number) {
+    this.indice = index
+    this.formulario.setValue({
+      nome: this.pessoas[this.indice].nome,
+      idade: this.pessoas[this.indice].idade,
+      cidade: this.pessoas[this.indice].cidade
+    })
+    this.btnCadastrar = false
   }
 }

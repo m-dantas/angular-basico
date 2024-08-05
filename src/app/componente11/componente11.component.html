@@ -64,6 +64,14 @@
         </tr>
     </thead>
     <tbody>
-
+        @for (pessoa of pessoas; track $index) {
+            <tr>
+                <td>{{ $index }}</td>
+                <td>{{ pessoa.nome }}</td>
+                <td>{{ pessoa.idade }}</td>
+                <td>{{ pessoa.cidade }}</td>
+                <td><button (click)="selecao($index)" class="btn btn-primary">Selecionar</button></td>
+            </tr>
+        }
     </tbody>
 </table>
