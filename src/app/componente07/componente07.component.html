@@ -1,0 +1,19 @@
+<h1>Aprendendo a diretiva ngStyle</h1>
+
+<ul>
+    <li
+        *ngFor="let item of lista"
+        [ngStyle]="{'color': item === 'Aprovado' ? 'green' : 'red'}"
+    >
+        {{ item }}
+    </li>
+</ul>
+
+<ul>
+    <li
+        *ngFor="let item of lista"
+        [ngClass]="item === 'Aprovado' ? 'fonteVerde' : 'fonteVermelha' "
+    >
+        {{ item }}
+    </li>
+</ul>
