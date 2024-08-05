@@ -35,4 +35,24 @@ export class Componente11Component {
     })
     this.btnCadastrar = false
   }
+
+  alterar () {
+    this.pessoas[this.indice] = this.formulario.value as Pessoa
+    this.indice = -1
+    this.formulario.reset()
+    this.btnCadastrar = true
+  }
+
+  remover () {
+    this.pessoas.splice(this.indice, 1)
+    this.indice = -1
+    this.formulario.reset()
+    this.btnCadastrar = true
+  }
+
+  cancelar () {
+    this.formulario.reset()
+    this.indice = -1
+    this.btnCadastrar = true
+  }
 }

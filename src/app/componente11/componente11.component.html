@@ -47,9 +47,27 @@
             Cadastrar
         </button>
     } @else {
-        <button type="button" class="btn btn-outline-primary">Alterar</button>
-        <button type="button" class="btn btn-outline-primary">Remover</button>
-        <button type="button" class="btn btn-danger">Cancelar</button>
+        <button 
+            type="button"
+            class="btn btn-outline-primary"
+            (click)="alterar()"
+        >
+            Alterar
+        </button>
+        <button
+            type="button"
+            class="btn btn-outline-primary"
+            (click)="remover()"
+        >
+            Remover
+        </button>
+        <button
+            type="button"
+            class="btn btn-danger"
+            (click)="cancelar()"
+        >
+            Cancelar
+        </button>
     }
 </form>
 
