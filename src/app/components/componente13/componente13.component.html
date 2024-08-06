@@ -1,20 +1,21 @@
-<form>
-    <input type="number" class="form-control" readonly>
-    <input type="text" class="form-control" placeholder="Nome">
-    <input type="number" class="form-control" placeholder="Valor">
+<form [formGroup]="form">
+    <input type="text" class="form-control" readonly formControlName="id">
+    <input type="text" class="form-control" placeholder="Nome" formControlName="name">
+    <input type="number" class="form-control" placeholder="Valor" formControlName="value">
 
-    <button type="button" class="btn btn-primary">
-        Cadastrar
-    </button>
-    <button type="button" class="btn btn-outline-primary">
-        Alterar
-    </button>
-    <button type="button" class="btn btn-outline-primary">
-        Remover
-    </button>
-    <button type="button" class="btn btn-danger">
-        Cancelar
-    </button>
+    
+    @if (registration) {
+        <button type="button" class="btn btn-primary btn-forms" (click)="handleInsert()" [disabled]="form.invalid">
+            Cadastrar
+        </button>
+    } @else {
+        <button type="button" class="btn btn-primary btn-forms" (click)="handleUpdate()">
+            Alterar
+        </button>
+        <button type="button" class="btn btn-outline-primary btn-forms" (click)="handleRemove()">
+            Remover
+        </button>
+    }
 </form>
 
 <!-- TABELA -->
@@ -29,11 +30,20 @@
     </thead>
 
     <tbody>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
+        @for (product of products; track $index) {
+            <tr>
+                <td>{{ $index }}</td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.value }}</td>
+                <td>
+                    <button 
+                        class="btn btn-primary" 
+                        (click)="handleSelectProduct($index)"
+                    >
+                        Selecionar
+                    </button>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
