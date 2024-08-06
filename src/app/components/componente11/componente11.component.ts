@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Pessoa } from '../modelo/Pessoa';
+import { Pessoa } from '../../models/Pessoa';
 
 @Component({
   selector: 'app-componente11',

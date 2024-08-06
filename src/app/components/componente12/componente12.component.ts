@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { MediaPipe } from "../pipe/media.pipe";
+import { MediaPipe } from "../../pipe/media.pipe";
 
 @Component({
   selector: 'app-componente12',
