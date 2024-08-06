@@ -1,0 +1,24 @@
+<p>{{ nome | uppercase }}</p>
+<p>{{ nome | lowercase }}</p>
+<p>{{ obj | json }}</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Nota 1</th>
+            <th>Nota 2</th>
+            <th>Média</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (aluno of alunos; track $index) {
+            <tr>
+                <td>{{ aluno.nome }}</td>
+                <td>{{ aluno.nota1 }}</td>
+                <td>{{ aluno.nota2 }}</td>
+                <td>{{ aluno | media }}</td>
+            </tr>
+        }
+    </tbody>
+</table>
